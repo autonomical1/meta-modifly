@@ -51,6 +51,7 @@ DEPENDS = " \
             lgpio \
             glibc \
             sierra-mc7411 \
+            wayland \
             "
 
 IMAGE_INSTALL:append = " \
@@ -65,18 +66,19 @@ S = "${WORKDIR}/git"
 
 inherit cmake
 do_configure[depends] += " cmake-native:do_populate_sysroot cmake:do_populate_sysroot"
-
-EXTRA_OECMAKE = "-DCMAKE_SYSROOT=${STAGING_DIR_TARGET}"
+do_configure[network] = "1"
+EXTRA_OECMAKE = ""
 
 do_configure () {
-    #install -d ${S}/build-arm64
-    #cmake --no-warn-unused-cli -DCMAKE_C_COMPILER:FILEPATH=/usr/bin/x86_64-linux-gnu-gcc -DCMAKE_CXX_COMPILER:FILEPATH=/usr/bin/x86_64-linux-gnu-g++ -S ${S} -B ${S}/build-arm64
-    #cmake --no-warn-unused-cli -S ${S} -B ${S}/build-arm64
     unset CFLAGS CXXFLAGS LDFLAGS
     export CC=/usr/bin/gcc
     export CXX=/usr/bin/g++
-
-    cmake ${S}/. -G Ninja
+    export HDF5_ROOT=/opt/yocto/poky/build/tmp/work/core2-64-poky-linux/hdf5/1.14.2/package/usr
+    export OPENSSL_ROOT_DIR=/usr/bin/openssl
+    install -d ${S}/build-arm64
+    /usr/bin/cmake -S ${S} -B ${S}/build-arm64 -G Ninja
+    #cmake --no-warn-unused-cli -S ${S} -B ${S}/build-arm64
+    #/usr/bin/cmake ${S}/. -G Ninja
 }
 
 do_compile () {                               
