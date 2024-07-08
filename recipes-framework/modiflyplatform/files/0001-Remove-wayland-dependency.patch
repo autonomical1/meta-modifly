@@ -1,0 +1,24 @@
+From d6cc1271c9d9b674b551308c037410a69ca3e322 Mon Sep 17 00:00:00 2001
+From: autonomical1 <autonomical1>
+Date: Mon, 8 Jul 2024 17:55:53 +0000
+Subject: [PATCH] Remove wayland dependency
+
+---
+ CMakeLists.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/thirdparty/SDL/CMakeLists.txt b/thirdparty/SDL/CMakeLists.txt
+index 53a5894f9..851e76df8 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1513,7 +1513,6 @@ elseif(UNIX AND NOT APPLE AND NOT RISCOS AND NOT HAIKU)
+     CheckGLX()
+     CheckOpenGL()
+     CheckOpenGLES()
+-    CheckWayland()
+     CheckVivante()
+     # FIXME: implement CheckVulkan()
+     if(SDL_VULKAN)
+-- 
+2.34.1
+
