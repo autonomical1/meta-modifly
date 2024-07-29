@@ -32,6 +32,7 @@ DEPENDS = " \
             boost \
             bazel-native \
             cmake-native \
+            libedgetpu-std
             ninja \
             git \
             ffmpeg \
