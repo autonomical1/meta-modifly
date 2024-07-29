@@ -90,12 +90,9 @@ runqemu qemuarm64 slirp
 
 # Final notes
 To disable ssh, find the `EXTRA_IMAGE_FEATURES` line in `conf/local.conf` and delete `debug_tweaks`. This also disables root login.
-<<<<<<< Updated upstream
-=======
 
 To see environment variables while building, use this command:
 
 ```
 bitbake -e <image> | grep ^<variable to find>
 ```
->>>>>>> Stashed changes
