@@ -5,6 +5,7 @@ SECTION = "drivers"
 
 SRC_URI = " \
             http://abyz.me.uk/lg/lg.zip \
+            file://0001-cross-compile-strip.patch \
             "
 
 SRC_URI[md5sum] = "ee8f96ea76b840022d67c0cbfd2382c6"
@@ -14,47 +15,39 @@ INSANE_SKIP:${PN}:append = "already-stripped"
 
 S = "${WORKDIR}/lg"
 
+EXTRA_OECONF = "--host=${HOST_SYS} --build=${BUILD_SYS}"
+
+EXTRA_OEMAKE = "CC=${STAGING_DIR_NATIVE}/usr/bin/aarch64-poky-linux/aarch64-poky-linux-gcc CXX=${STAGING_DIR_NATIVE}/usr/bin/aarch64-poky-linux/aarch64-poky-linux-g++ \
+                CFLAGS='${CFLAGS} --sysroot=${STAGING_DIR_TARGET}' \
+                LDFLAGS='${LDFLAGS} --sysroot=${STAGING_DIR_TARGET}'"
+
+CFLAGS:append = " -fPIC"
+CXXFLAGS:append = " -fPIC"
+
 do_compile () {
-    unset CFLAGS CPPFLAGS CXXFLAGS LDFLAGS
     oe_runmake
 }
 do_install () {
     oe_runmake install DESTDIR=${D}
 }
 
-
-FILES:${PN}=" \
-    /usr \
-    /usr/bin \
-    /usr/include \
-    /usr/local \
-    /usr/lib \
-    /usr/share \
-    /usr/bin/rgpiod \
-    /usr/bin/rgs \
-    /usr/include/lgpio.h \
-    /usr/include/rgpio.h \
-    /usr/local/lib \
-    /usr/local/lib/python3.10 \
-    /usr/local/lib/python3.10/dist-packages \
-    /usr/local/lib/python3.10/dist-packages/rgpio.py \
-    /usr/local/lib/python3.10/dist-packages/__pycache__ \
-    /usr/local/lib/python3.10/dist-packages/rgpio-0.2.2.0.egg-info \
-    /usr/local/lib/python3.10/dist-packages/__pycache__/rgpio.cpython-310.pyc \
-    /usr/local/lib/python3.10/dist-packages/rgpio-0.2.2.0.egg-info/not-zip-safe \
-    /usr/local/lib/python3.10/dist-packages/rgpio-0.2.2.0.egg-info/top_level.txt \
-    /usr/local/lib/python3.10/dist-packages/rgpio-0.2.2.0.egg-info/SOURCES.txt \
-    /usr/local/lib/python3.10/dist-packages/rgpio-0.2.2.0.egg-info/dependency_links.txt \
-    /usr/local/lib/python3.10/dist-packages/rgpio-0.2.2.0.egg-info/PKG-INFO \
-    /usr/lib/liblgpio.so \
-    /usr/lib/liblgpio.so.1 \
-    /usr/lib/librgpio.so \
-    /usr/lib/librgpio.so.1 \
-    /usr/share/man \
-    /usr/share/man/man1 \
-    /usr/share/man/man3 \
-    /usr/share/man/man1/rgs.1 \
-    /usr/share/man/man1/rgpiod.1 \
-    /usr/share/man/man3/rgpio.3 \
-    /usr/share/man/man3/lgpio.3 \
-    "
+FILES:${PN} = " \
+  /usr/local \
+  /usr/local/lib \
+  /usr/bin \
+  /usr/bin/rgpiod \
+  /usr/bin/rgs \
+  /usr/lib/liblgpio.so.1 \
+  /usr/lib/librgpio.so.1 \
+  /usr/local/lib/python3.10 \
+  /usr/local/lib/python3.10/dist-packages \
+  /usr/local/lib/python3.10/dist-packages/rgpio.py \
+  /usr/local/lib/python3.10/dist-packages/__pycache__ \
+  /usr/local/lib/python3.10/dist-packages/rgpio-0.2.2.0.egg-info \
+  /usr/local/lib/python3.10/dist-packages/__pycache__/rgpio.cpython-310.pyc \
+  /usr/local/lib/python3.10/dist-packages/rgpio-0.2.2.0.egg-info/not-zip-safe \
+  /usr/local/lib/python3.10/dist-packages/rgpio-0.2.2.0.egg-info/top_level.txt \
+  /usr/local/lib/python3.10/dist-packages/rgpio-0.2.2.0.egg-info/SOURCES.txt \
+  /usr/local/lib/python3.10/dist-packages/rgpio-0.2.2.0.egg-info/dependency_links.txt \
+  /usr/local/lib/python3.10/dist-packages/rgpio-0.2.2.0.egg-info/PKG-INFO  \
+"

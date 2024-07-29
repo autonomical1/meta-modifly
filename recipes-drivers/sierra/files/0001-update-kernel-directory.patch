@@ -1,0 +1,25 @@
+From 0ef3f44df952cb3249137302c6b1a8ba3c533649 Mon Sep 17 00:00:00 2001
+From: autonomical1 <autonomical1>
+Date: Wed, 10 Jul 2024 19:15:06 +0000
+Subject: [PATCH] update kernel directory
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 0a1fb15..ef8fe88 100644
+--- a/Makefile
++++ b/Makefile
+@@ -5,7 +5,7 @@
+ # core layer
+ obj-m := qcserial.o usb_wwan.o qmi_wwan.o
+ 
+-KERNELDIR ?= /lib/modules/$(shell uname -r)/build
++KERNELDIR ?= /opt/yocto/poky/build/tmp/work-shared/qemuarm64/kernel-source
+ PWD       := $(shell pwd)
+ 
+ all:
+-- 
+2.34.1
+

@@ -1,0 +1,27 @@
+From f91fcd08b34c9d34b5007912c405a5c22ed477c6 Mon Sep 17 00:00:00 2001
+From: autonomical1 <autonomical1>
+Date: Wed, 24 Jul 2024 18:06:11 +0000
+Subject: [PATCH 2/2] add compiler for minilua
+
+---
+ thirdparty/LuaJIT/src/host/cmake/minilua/CMakeLists.txt | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/thirdparty/LuaJIT/src/host/cmake/minilua/CMakeLists.txt b/thirdparty/LuaJIT/src/host/cmake/minilua/CMakeLists.txt
+index 9df88e56..e33ba3e3 100644
+--- a/thirdparty/LuaJIT/src/host/cmake/minilua/CMakeLists.txt
++++ b/thirdparty/LuaJIT/src/host/cmake/minilua/CMakeLists.txt
+@@ -1,7 +1,10 @@
+ cmake_minimum_required(VERSION 3.0...3.5)
+ 
+ project(minilua)
++set(CMAKE_C_COMPILER "/usr/bin/x86_64-linux-gnu-gcc")
++set(CMAKE_CXX_COMPILER "/usr/bin/x86_64-linux-gnu-g++")
+ 
++add_definitions(-D_MIPS_SIM=_ABI64)
+ set(CMAKE_POSITION_INDEPENDENT_CODE OFF)
+ 
+ find_library(LIBM_LIBRARIES NAMES m)
+-- 
+2.34.1
+

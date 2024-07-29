@@ -1,0 +1,25 @@
+From 28ac2d3326c726dbfb11bb5611f40aa6fc2b1469 Mon Sep 17 00:00:00 2001
+From: autonomical1 <autonomical1>
+Date: Mon, 15 Jul 2024 18:46:57 +0000
+Subject: [PATCH] cross compile patch
+
+---
+ lg/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 77cb3ca..3149d53 100644
+--- a/Makefile
++++ b/Makefile
+@@ -6,7 +6,7 @@ CC           = $(CROSS_PREFIX)gcc
+ AR           = $(CROSS_PREFIX)ar
+ RANLIB       = $(CROSS_PREFIX)ranlib
+ SIZE         = $(CROSS_PREFIX)size
+-STRIP        = $(CROSS_PREFIX)strip
++STRIP        = /opt/yocto/poky/build/tmp/work/cortexa57-poky-linux/lgpio/1.0/recipe-sysroot-native/usr/bin/aarch64-poky-linux/aarch64-poky-linux-strip
+ SHLIB        = $(CC) -shared
+ STRIPLIB     = $(STRIP) --strip-unneeded
+ 
+-- 
+2.34.1
+

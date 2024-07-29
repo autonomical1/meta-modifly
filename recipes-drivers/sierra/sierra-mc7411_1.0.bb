@@ -6,11 +6,16 @@ SECTION = "drivers"
 inherit module
 
 SRC_URI = "file://MBPL_DRIVERS_R35_ENG4-usb-src.tar.gz"
-
+SRC_URI += "file://0001-update-kernel-directory.patch"
 SRC_URI[md5sum] = "a47316b48ed7f5fd3f84554f5e708c44"
 SRC_URI[sha256sum] = "cc05729658822b340672105fc6a6e24ec2c07b705e5161a68667963060c537af"
 
 S = "${WORKDIR}/usb"
+
+IMAGE_INSTALL:append = " \
+            kernel-image \
+            kernel-modules \
+            "
 
 KERNEL_SRC = "${STAGING_KERNEL_DIR}"
 KERNEL_BUILD = "${STAGING_KERNEL_BUILDDIR}"
