@@ -15,4 +15,15 @@ jobs:
     name: Install Yocto and its dependencies
     runs-on: [self-hosted, Linux, X64]
     steps:
-    - 
+    - name: Clone poky
+      run: git clone https://git.yoctoproject.org/poky -b scarthgap
+    - name: Clone meta-openembedded
+      run: git clone https://github.com/openembedded/meta-openembedded -b scarthgap
+    - name: Clone meta-tensorflow
+      run: git clone https://git.yoctoproject.org/meta-tensorflow
+    - name: Clone meta-raspberrypi
+      run: git clone https://git.yoctoproject.org/meta-raspberrypi -b scarthgap
+    - name: Clone meta-arm
+      run: git clone https://git.yoctoproject.org/meta-arm -b scarthgap
+    - name: Clone meta-tensorflow-lite
+      run: git clone https://github.com/NobuoTsukamoto/meta-tensorflow-lite
