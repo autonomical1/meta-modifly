@@ -77,3 +77,11 @@ This command will allow the build process to begin:
 bitbake core-image-full-cmdline
 ```
 
+Once building completes, depending on what machine you set in `local.conf`, there will be a few different ways to start it up. 
+
+By default, the image builds as a QEMU Arm-based image, but you can reconfigure it for different embedded board types. For example, if using the Raspberry Pi, you would change the `MACHINE` variable in `local.conf` to `MACHINE ??= "raspberrypi*"`.
+
+If building for QEMU, you can run the `runqemu` command to run a virtualized image to test (`slirp` allows for networking).
+```
+runqemu qemuarm64 slirp
+```
