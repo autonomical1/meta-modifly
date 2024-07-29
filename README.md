@@ -52,7 +52,7 @@ git clone https://git.yoctoproject.org/meta-raspberrypi -b scarthgap
 
 git clone https://git.yoctoproject.org/meta-arm -b scarthgap
 
-git clonehttps://github.com/NobuoTsukamoto/meta-tensorflow-lite
+git clone https://github.com/NobuoTsukamoto/meta-tensorflow-lite
 ```
 
 Once all of these layers have been cloned, you can begin setting up the build environment.
