@@ -51,6 +51,8 @@ git clone https://git.yoctoproject.org/meta-tensorflow
 git clone https://git.yoctoproject.org/meta-raspberrypi -b scarthgap
 
 git clone https://git.yoctoproject.org/meta-arm -b scarthgap
+
+git clonehttps://github.com/NobuoTsukamoto/meta-tensorflow-lite
 ```
 
 Once all of these layers have been cloned, you can begin setting up the build environment.
@@ -85,3 +87,6 @@ If building for QEMU, you can run the `runqemu` command to run a virtualized ima
 ```
 runqemu qemuarm64 slirp
 ```
+
+# Final notes
+To disable ssh, find the `EXTRA_IMAGE_FEATURES` line in `conf/local.conf` and delete `debug_tweaks`. This also disables root login.
