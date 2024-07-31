@@ -15,7 +15,11 @@ jobs:
     name: Install Yocto and its dependencies
     runs-on: ubuntu-latest
     steps:
+    - name: Fetch meta-modifly layer
+      run: wget https://raw.githubusercontent.com/autonomical1/meta-modifly/master/install-yocto.sh
     - name: Run Install script
-      run: ls -la
+      run: |
+        chmod +x ./install-yocto.sh
+        bash ./install-yocto.sh
 
       
