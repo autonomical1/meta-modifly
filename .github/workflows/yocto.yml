@@ -32,6 +32,8 @@ jobs:
     - name: Initialize build environment
       run: source poky/oe-init-build-env
     - name: Copy configuration files
-      run: cp meta-modifly/conf-transfer/* build/conf/*
+      run: |
+          cp meta-modifly/conf-transfer/local.conf build/conf/local.conf
+          cp meta-modifly/conf-transfer/bblayers.conf build/conf/bblayers.conf
     - name: Run build system
       run: bitbake core-image-full-cmdline
