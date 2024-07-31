@@ -16,6 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Run Install script
-      run: bash ./install-yocto.sh
+      run: ls -la *
 
       
