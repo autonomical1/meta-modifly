@@ -13,7 +13,7 @@ permissions:
 jobs:
   yocto_install:
     name: Install Yocto and its dependencies
-    runs-on: [self-hosted, Linux, X64]
+    runs-on: ubuntu-latest
     steps:
     - name: Clone poky
       run: git clone https://git.yoctoproject.org/poky -b scarthgap
@@ -31,7 +31,7 @@ jobs:
       run: git clone git@github.com:autonomical1/meta-modifly.git
   build_root_fs:
     name: Build Yocto Root FS
-    runs-on: [self-hosted, Linux, X64]
+    runs-on: ubuntu-latest
     steps:
     - name: Initialize build environment
       run: source poky/oe-init-build-env
