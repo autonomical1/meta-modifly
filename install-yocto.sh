@@ -19,5 +19,5 @@ ls -la
 source poky/oe-init-build-env
 mv ../meta-modifly/conf-transfer/local.conf conf/local.conf
 mv ../meta-modifly/conf-transfer/bblayers.conf conf/bblayers.conf
-# bitbake core-image-full-cmdline
+bitbake core-image-full-cmdline
         
