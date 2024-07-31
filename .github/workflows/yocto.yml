@@ -36,8 +36,8 @@ jobs:
       - yocto_install
     steps:
     - name: Initialize build environment
-      run: source ${GITHUB_WORKSPACE}/poky/oe-init-build-env
+      run: source poky/oe-init-build-env
     - name: Copy configuration files
       run: |
-          cp ${GITHUB_WORKSPACE}/meta-modifly/conf-transfer/* ${GITHUB_WORKSPACE}/poky/build/conf/*
+          cp meta-modifly/conf-transfer/* poky/build/conf/*
       
