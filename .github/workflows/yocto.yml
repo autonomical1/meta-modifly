@@ -16,6 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Run Install script
-      run: ls -la *
+      run: ls -la
 
       
