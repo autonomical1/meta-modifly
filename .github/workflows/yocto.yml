@@ -15,29 +15,7 @@ jobs:
     name: Install Yocto and its dependencies
     runs-on: ubuntu-latest
     steps:
-    - name: Change directory
-      run: cd /opt
-    - name: Make yocto directory
-      run: |
-          mkdir yocto
-          cd yocto
-    - name: Clone poky
-      run: git clone https://git.yoctoproject.org/poky -b scarthgap
-    - name: Clone meta-openembedded
-      run: git clone https://github.com/openembedded/meta-openembedded -b scarthgap
-    - name: Clone meta-tensorflow
-      run: git clone https://git.yoctoproject.org/meta-tensorflow
-    - name: Clone meta-raspberrypi
-      run: git clone https://git.yoctoproject.org/meta-raspberrypi -b scarthgap
-    - name: Clone meta-arm
-      run: git clone https://git.yoctoproject.org/meta-arm -b scarthgap
-    - name: Clone meta-tensorflow-lite
-      run: git clone https://github.com/NobuoTsukamoto/meta-tensorflow-lite
-    - name: Clone meta-modifly
-      run: git clone https://github.com/autonomical1/meta-modifly.git          
-    - name: Run build system
-      run: |
-        source poky/oe-init-build-env
-        mv meta-modifly/conf-transfer/local.conf build/conf/local.conf
-        mv meta-modifly/conf-transfer/bblayers.conf build/conf/bblayers.conf
-        bitbake core-image-full-cmdline
+    - name: Run Install script
+      run: bash ./install-yocto.sh
+
+      
