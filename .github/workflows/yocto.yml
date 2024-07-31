@@ -28,7 +28,7 @@ jobs:
     - name: Clone meta-tensorflow-lite
       run: git clone https://github.com/NobuoTsukamoto/meta-tensorflow-lite
     - name: Clone meta-modifly
-      run: git clone git@github.com:autonomical1/meta-modifly.git
+      run: git clone https://github.com/autonomical1/meta-modifly.git
   build_root_fs:
     name: Build Yocto Root FS
     runs-on: ubuntu-latest
