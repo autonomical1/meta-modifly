@@ -15,6 +15,12 @@ jobs:
     name: Install Yocto and its dependencies
     runs-on: ubuntu-latest
     steps:
+    - name: Change directory
+      run: cd /opt
+    - name: Make yocto directory
+      run: |
+          mkdir yocto
+          cd yocto
     - name: Clone poky
       run: git clone https://git.yoctoproject.org/poky -b scarthgap
     - name: Clone meta-openembedded
