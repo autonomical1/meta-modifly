@@ -37,7 +37,7 @@ jobs:
       run: git clone https://github.com/autonomical1/meta-modifly.git          
     - name: Run build system
       run: |
-        source poky/oe-init/build-env
+        source poky/oe-initbuild-env
         cp meta-modifly/conf-transfer/local.conf build/conf/local.conf
         cp meta-modifly/conf-transfer/bblayers.conf build/conf/bblayers.conf
         bitbake core-image-full-cmdline
