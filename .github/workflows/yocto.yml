@@ -32,6 +32,8 @@ jobs:
   build_root_fs:
     name: Build Yocto Root FS
     runs-on: ubuntu-latest
+    needs:
+      - yocto_install
     steps:
     - name: Initialize build environment
       run: source ${GITHUB_WORKSPACE}/poky/oe-init-build-env
