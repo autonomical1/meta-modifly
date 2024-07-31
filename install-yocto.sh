@@ -17,9 +17,7 @@ git clone https://github.com/autonomical1/meta-modifly.git
 ls -la
 
 source poky/oe-init-build-env
-ls -la
-ls ../meta-modifly
-mv /opt/yocto/meta-modifly/conf-transfer/local.conf conf/local.conf
-mv /opt/yocto/meta-modifly/conf-transfer/bblayers.conf conf/bblayers.conf
+mv ../meta-modifly/conf-transfer/local.conf conf/local.conf
+mv ../meta-modifly/conf-transfer/bblayers.conf conf/bblayers.conf
 # bitbake core-image-full-cmdline
         
