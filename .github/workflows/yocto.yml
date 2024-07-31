@@ -29,15 +29,9 @@ jobs:
       run: git clone https://github.com/NobuoTsukamoto/meta-tensorflow-lite
     - name: Clone meta-modifly
       run: git clone https://github.com/autonomical1/meta-modifly.git
-  build_root_fs:
-    name: Build Yocto Root FS
-    runs-on: ubuntu-latest
-    needs:
-      - yocto_install
-    steps:
     - name: Initialize build environment
       run: source poky/oe-init-build-env
     - name: Copy configuration files
-      run: |
-          cp meta-modifly/conf-transfer/* poky/build/conf/*
-      
+      run:  cp conf-transfer/* poky/build/conf/*
+    - name: Run build system
+      run: bitbake core-image-full-cmdline
