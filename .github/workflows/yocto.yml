@@ -27,3 +27,15 @@ jobs:
       run: git clone https://git.yoctoproject.org/meta-arm -b scarthgap
     - name: Clone meta-tensorflow-lite
       run: git clone https://github.com/NobuoTsukamoto/meta-tensorflow-lite
+    - name: Clone meta-modifly
+      run: git clone git@github.com:autonomical1/meta-modifly.git
+  build_root_fs:
+    name: Build Yocto Root FS
+    runs-on: [self-hosted, Linux, X64]
+    steps:
+    - name: Initialize build environment
+      run: source poky/oe-init-build-env
+    - name: Copy configuration files
+      run: |
+          cp meta-modifly/conf-transfer/* poky/build/conf/*
+      
