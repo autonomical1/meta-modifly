@@ -20,6 +20,6 @@ jobs:
     - name: Run Install script
       run: |
         chmod +x ./install-yocto.sh
-        bash ./install-yocto.sh
+        sudo bash ./install-yocto.sh
 
       
