@@ -26,9 +26,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Clone Yocto Git Repos
         run:
-          cd ../;
-          git clone https://git.yoctoproject.org/poky -b styhead
-          git clone https://github.com/openembedded/meta-openembedded -b styhead
+          cd ../ \
+          git clone https://git.yoctoproject.org/poky -b styhead \
+          git clone https://github.com/openembedded/meta-openembedded -b styhead \
           git clone https://github.com/OE4T/meta-tegra -b styhead
 
       - name: Install apt-based dependencies
@@ -38,7 +38,7 @@ jobs:
           packages: build-essential chrpath cpio debianutils diffstat file gawk gcc git iputils-ping libacl1 liblz4-tool locales python3 python3-git python3-jinja2 python3-pexpect python3-pip python3-subunit socat texinfo unzip wget xz-utils zstd
       - name: Build Yocto Image
         run: |
-          cd poky
-          source oe-init-build-env
+          cd poky \
+          source oe-init-build-env \
           bitbake modifly-image
         
