@@ -1,0 +1,16 @@
+[Unit]
+Description=Flask Web Application
+After=network.target dnsmasq.service
+Requires=dnsmasq.service
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/setup-server/
+ExecStart=flask --app server run --host=10.42.0.1
+StandardOutput=append:/var/log/flask.log
+StandardError=append:/var/log/flask.log
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,16 @@
+[Unit]
+Description=Next.js Frontend Application
+After=network.target dnsmasq.service
+Requires=dnsmasq.service
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/usr/lib/node_modules/react-app-next/
+ExecStart=/usr/bin/npm run start
+StandardOutput=append:/var/log/react.log
+StandardError=append:/var/log/react.log
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

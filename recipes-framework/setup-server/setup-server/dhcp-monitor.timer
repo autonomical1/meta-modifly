@@ -1,0 +1,10 @@
+[Unit]
+Description=DHCP Lease Monitor Timer
+
+[Timer]
+OnBootSec=10s
+OnUnitActiveSec=5s
+Unit=dhcp-lease-check.service
+
+[Install]
+WantedBy=timers.target

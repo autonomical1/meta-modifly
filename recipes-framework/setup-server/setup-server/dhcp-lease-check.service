@@ -1,0 +1,11 @@
+[Unit]
+Description=Check for DHCP leases and manage Flask service
+After=dnsmasq.service
+BindsTo=dnsmasq.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/dhcp-monitor.sh
+
+[Install]
+WantedBy=multi-user.target
