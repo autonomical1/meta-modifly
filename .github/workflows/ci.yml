@@ -27,9 +27,9 @@ jobs:
       - name: Clone Yocto Git Repos
         run: |
           cd ../
-          git clone https://git.yoctoproject.org/poky -b styhead
-          git clone https://github.com/openembedded/meta-openembedded -b styhead
-          git clone https://github.com/OE4T/meta-tegra -b styhead
+          git clone git://git.yoctoproject.org/poky.git -b styhead
+          git clone https://github.com/openembedded/meta-openembedded.git -b styhead
+          git clone https://github.com/OE4T/meta-tegra.git -b styhead
 
       - name: Install apt-based dependencies
         uses: gerlero/apt-install@v1.3.10
