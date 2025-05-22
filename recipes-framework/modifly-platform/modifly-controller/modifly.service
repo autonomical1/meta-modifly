@@ -1,0 +1,16 @@
+[Unit]
+Description="Modifly Osiris Controller"
+After=NetworkManager.service
+Wants=NetworkManager.service
+
+[Service]
+User=root
+Type=simple
+ExecStart=/usr/bin/mf-controller
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=/var/log/modifly.log
+
+[Install]
+WantedBy=multi-user.target

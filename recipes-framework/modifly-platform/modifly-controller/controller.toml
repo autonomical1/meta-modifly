@@ -1,0 +1,20 @@
+[controller]
+name = "usl-gw"
+motd = "You are currently connected to a local development environment."
+ip = "10.42.1.1"
+port = 8082
+
+[ssl]
+certificate = "/etc/modifly/pki/modifly-dev.localhost.crt"
+private_key = "/etc/modifly/pki/modifly-dev.localhost.key"
+add_root_ca = true
+root_ca = "/etc/modifly/pki/modifly-dev-rootca.pem"
+
+[access_point]
+ssid = "usl-gw"
+password = "bse2.210"
+hidden = true
+
+[encryption]
+public_key = "/etc/modifly/pki/enc_kp.pub"
+private_key = /etc/modifly/pki/enc_kp"

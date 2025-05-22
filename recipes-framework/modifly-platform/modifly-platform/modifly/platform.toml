@@ -1,0 +1,16 @@
+[platform]
+name = "jetsondrone0"
+
+[datalink_inet]
+ip = "10.42.0.1"
+#ip = "10.176.181.147"
+#ip = "192.168.1.145"
+port = 8082
+
+#[ssl]
+#root_ca = "/home/usl/ModiflyPlatform/pki/modifly-dev-rootca.pem"
+#verify_hostname = false
+
+#[encryption]
+#public_key = "/home/usl/ModiflyPlatform/pki/enc_kp.pub"
+#private_key = "/home/usl/ModiflyPlatform/pki/enc_kp"

@@ -1,11 +1,10 @@
 [connection]
 id=eth0
-uuid=5aa0aab8-0577-449a-b2be-ed58ea95737e
 type=ethernet
 autoconnect=true
 
-[ethernet]
-mac-address-blacklist=
+[match-device]
+interface-name=eth0
 
 [ipv4]
 method=shared   

@@ -1,14 +1,16 @@
 [connection]
 id=eth1
-uuid=98fd5452-3145-4f2b-9ef2-c1c5e7b1931b
 type=ethernet
 autoconnect=true
 
 [ethernet]
 mac-address-blacklist=
 
+[match-device]
+interface-name=eth1
+
 [ipv4]
-address1=10.42.0.1/24
+address1=10.42.1.1/24,10.42.0.1
 method=manual
 
 [ipv6]

@@ -1,0 +1,15 @@
+[Unit]
+Description="Modifly Osiris Platform"
+After=NetworkManager.service
+Wants=NetworkManager.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/MF24_Platform_Osiris
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=/var/log/modifly.log
+
+[Install]
+WantedBy=multi-user.target
